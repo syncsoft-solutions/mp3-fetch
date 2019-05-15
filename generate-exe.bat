@@ -1,0 +1,1 @@
+pyinstaller mp3-fetch.py -F -c -n mp3-fetch -i hand.ico
