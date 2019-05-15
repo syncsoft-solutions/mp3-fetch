@@ -29,6 +29,9 @@ if __name__ == '__main__':
 
         data = page.text
 
+        print('Download started...')
+        print('Downloading files to ' + args[2])
+
         soup = BeautifulSoup(data, features="html.parser")
 
         filenames = []
@@ -40,8 +43,6 @@ if __name__ == '__main__':
                 download_link = url + li
                 # Download the file
                 fname = sub_folder + li
-                # print(fname)
                 filename, headers = urllib.request.urlretrieve(download_link)
-                # filenames.append((filename, li))
                 os.rename(filename, os.path.join(sub_folder, li))
                 print('Music downloaded successfully: ' + li)
