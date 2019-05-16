@@ -16,6 +16,8 @@ def download(url, filename):
                 downloaded += len(data)
                 f.write(data)
                 done = int(50*downloaded/total)
-                sys.stdout.write('\r[{}{}]'.format('█' * done, '.' * (50-done)))
+                sys.stdout.write('\r[{}{}][{} of {} ({}%)]'
+                                 .format('█' * done, '.' * (50-done),
+                                         downloaded/1000, total/1000, done*2))
                 sys.stdout.flush()
     sys.stdout.write('\n')
