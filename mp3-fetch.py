@@ -14,7 +14,7 @@ warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
 if __name__ == '__main__':
     args = sys.argv
-    if len(args) < 2:
+    if len(args) < 3:
         print('Wrong number of inputs. Please specify the url then the folder to save the mp3 files.')
     else:
         url = args[1]
