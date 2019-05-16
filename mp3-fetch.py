@@ -7,6 +7,7 @@ from six.moves import urllib
 import os, shutil
 import sys
 import warnings
+import download
 
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
@@ -43,6 +44,7 @@ if __name__ == '__main__':
                 download_link = url + li
                 # Download the file
                 fname = sub_folder + li
-                filename, headers = urllib.request.urlretrieve(download_link)
-                os.rename(filename, os.path.join(sub_folder, li))
+                # filename, headers = urllib.request.urlretrieve(download_link)
+                download.download(download_link, os.path.join(sub_folder, li))
+                # os.rename(filename, os.path.join(sub_folder, li))
                 print('Music downloaded successfully: ' + li)
