@@ -8,6 +8,7 @@ import os, shutil
 import sys
 import warnings
 import download
+from utils import *
 
 warnings.filterwarnings("ignore", category=UserWarning, module='bs4')
 
@@ -41,12 +42,11 @@ if __name__ == '__main__':
             ext = li[len(li) - 3:]
 
             if ext == 'mp3':
-                print(li)
                 download_link = url + li
                 # Download the file
                 fname = sub_folder + li
-                # filename, headers = urllib.request.urlretrieve(download_link)
                 sf = li.split('/')
-                download.download(download_link, os.path.join(sub_folder, sf[len(sf)-1]))
-                # os.rename(filename, os.path.join(sub_folder, li))
+                final_name = sf[len(sf)-1]
+                final_name = remove_html_space(final_name)
+                download.download(download_link, os.path.join(sub_folder, final_name))
                 print('Music downloaded successfully: ' + li)
